@@ -4,7 +4,6 @@ import { FingerprintResultComponent, FingerprintParameter } from "../types";
 export interface GeoIp extends FingerprintResultComponent {
   geoip: {
     country: string;
-    ip: string;
   };
 }
 
@@ -20,7 +19,6 @@ export const geoip: FingerprintParameter<GeoIp> = function (next) {
   next(null, {
     geoip: {
       country: geo ? geo.country : null,
-      ip,
     },
   });
 };
